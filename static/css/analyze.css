@@ -46,6 +46,38 @@ body{
 .back-btn.outline {
 	color: #2A80B9;
 }
+/* 指标介绍按钮 */
+#analyze-btn1{
+	position: absolute;
+	right: 2em;
+	top:60px;
+	z-index: 1;
+	height: 36px;
+	line-height: 36px;
+	font-size: 1em;
+	padding: 0 10px;
+	border-color: #22577E;
+	background-color: #22577E;
+	padding-right: 2.2em;
+}
+#analyze-btn1>i{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	transform: translateY(-50%);	
+}
+#analyze-btn1, #analyze-btn1.off:hover {
+	border-color: #ce6635;
+	background-color: #ce6635;
+}
+#analyze-btn1:hover {
+	background-color: #c46032;
+}
+#analyze-btn1.outline {
+	color: #ce6635;
+}
+
+
 
 .box{
 	display: flex;

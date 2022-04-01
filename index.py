@@ -133,6 +133,11 @@ def echart():
             minYAxis=math.floor(minPsnr-2),
             maxYAxis=math.floor(maxPsnr+2)
         )
+
+@app.route('/intro', methods=['POST', 'GET'])
+def intro():
+    return render_template('intro.html')
+
 if __name__ == '__main__':
     # app.debug = True
     app.run(host='0.0.0.0', port=8987, debug=True)
