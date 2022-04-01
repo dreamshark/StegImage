@@ -94,7 +94,7 @@ class Ui_SteganoGAN(object):
             msg_box.exec_()
 
         if ok:
-            steganogan = SteganoGAN.load(architecture=None, path='steg/final.steg', cuda=True, verbose=True)
+            steganogan = SteganoGAN.load(architecture=None, path='static/steg/final.steg', cuda=True, verbose=True)
             # 输出解码后信息
             self.information_output_text.setText(steganogan.decode(self.Picture_Address))
             msg_box = QMessageBox(QMessageBox.Information, '成功!', '已输出解密结果!')

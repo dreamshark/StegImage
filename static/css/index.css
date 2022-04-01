@@ -100,7 +100,7 @@ i.fas{
     cursor: pointer;
     text-decoration: none;
 }
-.btn.active, #home-btn1, #home-btn2, #home-btn3, #home-btn4  {
+.home-buttons a{
     color: #FFF;
     border: 1px solid transparent;
 }

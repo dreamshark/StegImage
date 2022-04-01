@@ -2,21 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>训练效果图表</title>
+    <title>图片分析记录</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='/css/font-awesome.css')}}">
 	<link rel="stylesheet" href="{{url_for('static',filename ='css/echart.css')}}">
     <script src="{{url_for('static',filename ='js/echarts.js')}}"></script>
   </head>
   <body>
+	  <div class="echart-buttons">
+	  	<a class="back-btn btn" href="/">返回首页<i class="fas fa-angle-double-left"></i></a>
+	  </div>
+	  <form action="" method='POST'>
+		<div class="echart-buttons"><a id="echart-btn1" class="btn">
+			<input type="submit" name="clear" value="清空记录" />
+			<i class="fas fa-broom"></i>
+		</a></div>
+	  </form>
     <div id="main"></div>
     <script type="text/javascript">
-      // 基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById('main'),'dark');
-
+	  
+	  var inf=Infinity;
       // 指定图表的配置项和数据
       var option = {
 		  title: {
-		    text: '各训练参数下\n加密前后图片的PSNR值与SSIM值',
-		    left: 'center'
+		    text: '最近10次图片相似分析的记录',
+		    left: 'center',
+			fontSize: '30px',
+			fontWeight: 'bold'
 		  },
 		  grid: {
 			left: '3%',
@@ -28,26 +40,16 @@
 			left: 'left'
 		  },
 		  xAxis: {
-			data: [
-				'256x\n1500\ne5',
-				'256x\n3000\ne5', 
-				'256x\n4500\ne5', 
-				'256x\n6000\ne5', 
-				'256x\n7500\ne5', 
-				'256x\n9000\ne5', 
-				'256x\n10500\ne5', 
-				'256x\n12000\ne5', 
-				'256x\n24000\ne5'
-				]
+			data: [1,2,3,4,5,6,7,8,9,10]
 		  },
 		  yAxis: {
-			  min: 10,
-			  max: 30
+			  min: {{minYAxis}},
+			  max: {{maxYAxis}}
 		  },
 		  series: [
 			{
 			  name: 'PSNR',
-			  data: [21.81, 23.036, 24.156, 24.306, 23.649, 23.283, 23.132, 23.504, 24.774],
+			  data: {{psnrData}},
 			  type: 'line',
 			  stack: 'x',
 			  itemStyle:{
@@ -60,15 +62,15 @@
 			},
 			{
 			  name: 'SSIM',
-			  data: [0.705, 0.722, 0.723, 0.726, 0.718, 0.711, 0.711, 0.718, 0.733],
+			  data: {{ssimData}},
 			  type: 'line',
 			  stack: 'x',
 			  itemStyle:{
-			  				  normal:{
-			  					  label:{
-			  						  show:true
-			  					  }
-			  				  }
+				  normal:{
+					  label:{
+						  show:true
+					  }
+				  }
 			  }
 			}
 		  ]
@@ -77,5 +79,6 @@
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
     </script>
+	
   </body>
 </html>

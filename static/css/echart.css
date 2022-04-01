@@ -5,3 +5,91 @@ body{
 	width: 100%;
 	height:400px;
 }
+/* 按钮 */
+.btn {
+    height: 36px;
+    line-height: 36px;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: normal;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.echart-buttons a{
+	color: #FFF;
+	border: 1px solid transparent;
+}
+
+/* 返回首页按钮 */
+.back-btn{
+	position: absolute;
+	right: 2em;
+	z-index: 1;
+	height: 36px;
+	line-height: 36px;
+	font-size: 1em;
+	padding: 0 10px;
+	border-color: #22577E;
+	background-color: #22577E;
+	padding-right: 2.2em;
+}
+.back-btn>i{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	transform: translateY(-50%);	
+}
+.back-btn, .back-btn.off:hover {
+	border-color: #2A80B9;
+	background-color: #2A80B9;
+}
+.back-btn:hover {
+	background-color: #2879B0;
+}
+.back-btn.outline {
+	color: #2A80B9;
+}
+/* 清空记录按钮 */
+#echart-btn1>input{
+	height: inherit;
+	line-height: inherit;
+	border-radius: inherit;
+	padding:0 2.2em 0 10px;
+	color:#fff;
+	font-size: 1em;
+	border: none;
+	cursor: pointer;
+}
+#echart-btn1>i{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	transform: translateY(-50%);
+}
+#echart-btn1>input, #echart-btn1>input.off:hover{
+	border-color: #d00000;
+	background-color: #d00000;
+}
+
+#echart-btn1>input:hover {
+	background-color: #c60000;
+}
+#echart-btn1>input.outline {
+	color: #d00000;
+}
+#echart-btn1, #echart-btn1.off:hover {
+	border-color: #d00000;
+	background-color: #d00000;
+	color:#fff;
+	position: absolute;
+	top:60px;
+	right: 2em;
+	z-index: 1;
+}
+#echart-btn1:hover {
+	background-color: #c60000;
+}
+#echart-btn1.outline {
+	color: #d00000;
+}

@@ -125,7 +125,7 @@ class Ui_SteganoGAN(object):
             msg_box.exec_()
 
         if ok:
-            steganogan = SteganoGAN.load(architecture=None, path='steg/final.steg', cuda=True, verbose=True)
+            steganogan = SteganoGAN.load(architecture=None, path='static/steg/final.steg', cuda=True, verbose=True)
             steganogan.encode(self.Picture_Address, self.Save_Address+'/output.png', self.information_input_text.text())
             # print(steganogan.decode('output.png'))
             # main(self.Picture_Address, self.Mask_Address, self.Save_Address)

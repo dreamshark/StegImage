@@ -5,6 +5,8 @@ from werkzeug.utils import secure_filename
 import os
 import cv2
 import time
+import json
+import math
 import PSNR
 import SSIM
  
@@ -71,14 +73,66 @@ def analyze():
         res2 = round(PSNR.psnr(img1, img2), 3)
         res3 = round(SSIM.ssim(img1, img2), 3)
         
+        with open('static/json/chart_data.json', 'r') as f:
+            chartData = json.load(f)
+        
+        chartData['imgSize'].insert(0,res1)
+        chartData['PSNR'].insert(0,res2)
+        chartData['SSIM'].insert(0,res3)
+        
+        while(len(chartData['imgSize']) > 10):
+            chartData['imgSize'].pop()      
+        while(len(chartData['PSNR']) > 10):
+            chartData['PSNR'].pop()
+        while(len(chartData['SSIM']) > 10):
+            chartData['SSIM'].pop()
+        
+        with open('static/json/chart_data.json', 'w') as f:
+            json.dump(chartData, f)
+        
         return render_template('analyzed.html', timestamp=time.time(), ext=ext1, imgSize=res1, psnr=res2, ssim=res3)
  
     return render_template('analyze.html')
  
 @app.route('/echart', methods=['POST', 'GET'])
 def echart():
-    return render_template('echart.html')
- 
+    if (request.method == 'POST' and request.form.get('clear')=='清空记录'):
+        emptyData = {'imgSize': [], 'PSNR': [], 'SSIM': []}
+        with open('static/json/chart_data.json', 'w') as f:
+            json.dump(emptyData, f)
+        return render_template(
+                'echart.html',
+                psnrData=[],
+                ssimData=[],
+                minYAxis=0,
+                maxYAxis=4
+            )
+        
+    with open('static/json/chart_data.json', 'r') as f:
+        chartData = json.load(f)
+    
+    minPsnr=maxPsnr=2
+    
+    if not(len(chartData['PSNR'])==0):
+        psnrDataSorted=sorted(chartData['PSNR'])
+        
+        for val in psnrDataSorted:
+            if(val!=float('inf')):
+                minPsnr=val
+                break
+    
+        for val in reversed(psnrDataSorted):
+            if(val!=float('inf')):
+                maxPsnr=val
+                break        
+   
+    return render_template(
+            'echart.html',
+            psnrData=chartData['PSNR'],
+            ssimData=chartData['SSIM'],
+            minYAxis=math.floor(minPsnr-2),
+            maxYAxis=math.floor(maxPsnr+2)
+        )
 if __name__ == '__main__':
     # app.debug = True
     app.run(host='0.0.0.0', port=8987, debug=True)

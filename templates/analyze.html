@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>图片相似分析</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='/css/font-awesome.css')}}">
 	<link rel="stylesheet" href="{{url_for('static',filename ='css/analyze.css')}}">
 </head>
 <body>
+	<div class="analyze-buttons">
+		<a class="back-btn btn" href="/">返回首页<i class="fas fa-angle-double-left"></i></a>
+	</div>
 	<div class="box">
 		<h1>图片相似分析</h1>
 		<form action="" enctype='multipart/form-data' method='POST'>
@@ -13,7 +17,7 @@
 			    <div><span class="img-size">图片尺寸：</span>{{imgSize}}</div>
 				<div><span class="psnr">PSNR：</span>{{psnr}}</div>
 				<div><span class="ssim">SSIM：</span>{{ssim}}</div>
-				<a class="btn"><input type="submit" value="计算" /></a>
+				<a class="btn"><input type="submit" name="test" value="计算" /></a>
 			</div>
 			<div class="hr"></div>
 			<div class="msg">{{msg}}</div>
