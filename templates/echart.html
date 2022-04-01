@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>训练效果图表</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/echart.css')}}">
+    <script src="{{url_for('static',filename ='js/echarts.js')}}"></script>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'),'dark');
+
+      // 指定图表的配置项和数据
+      var option = {
+		  title: {
+		    text: '各训练参数下\n加密前后图片的PSNR值与SSIM值',
+		    left: 'center'
+		  },
+		  grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		  },
+		  legend: {
+			left: 'left'
+		  },
+		  xAxis: {
+			data: [
+				'256x\n1500\ne5',
+				'256x\n3000\ne5', 
+				'256x\n4500\ne5', 
+				'256x\n6000\ne5', 
+				'256x\n7500\ne5', 
+				'256x\n9000\ne5', 
+				'256x\n10500\ne5', 
+				'256x\n12000\ne5', 
+				'256x\n24000\ne5'
+				]
+		  },
+		  yAxis: {
+			  min: 10,
+			  max: 30
+		  },
+		  series: [
+			{
+			  name: 'PSNR',
+			  data: [21.81, 23.036, 24.156, 24.306, 23.649, 23.283, 23.132, 23.504, 24.774],
+			  type: 'line',
+			  stack: 'x',
+			  itemStyle:{
+				  normal:{
+					  label:{
+						  show:true
+					  }
+				  }
+			  }
+			},
+			{
+			  name: 'SSIM',
+			  data: [0.705, 0.722, 0.723, 0.726, 0.718, 0.711, 0.711, 0.718, 0.733],
+			  type: 'line',
+			  stack: 'x',
+			  itemStyle:{
+			  				  normal:{
+			  					  label:{
+			  						  show:true
+			  					  }
+			  				  }
+			  }
+			}
+		  ]
+		};
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

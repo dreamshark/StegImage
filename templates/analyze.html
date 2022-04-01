@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片相似分析</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/analyze.css')}}">
+</head>
+<body>
+	<div class="box">
+		<h1>图片相似分析</h1>
+		<form action="" enctype='multipart/form-data' method='POST'>
+			<div class="info-bar">
+			    <div><span class="img-size">图片尺寸：</span>{{imgSize}}</div>
+				<div><span class="psnr">PSNR：</span>{{psnr}}</div>
+				<div><span class="ssim">SSIM：</span>{{ssim}}</div>
+				<a class="btn"><input type="submit" value="计算" /></a>
+			</div>
+			<div class="hr"></div>
+			<div class="msg">{{msg}}</div>
+			<table>
+				<tr>
+					<th>图片1</th>
+					<th>图片2</th>
+				</tr>
+				<tr>
+					<td><a class="btn"><input type="file" name="img1" /></a></td>
+					<td><a class="btn"><input type="file" name="img2" /></a></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>
+</html>

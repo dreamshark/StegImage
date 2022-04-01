@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+    <meta charset="UTF-8">
+    <title>Steg图像</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/index.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename ='font-awesome/css/all.css')}}">
+	<script type="text/javascript" src="{{url_for('static',filename ='font-awesome/js/all.js')}}"></script>
+</head>
+
+<body>
+<div id="home-cover">
+	<div id="home-cover-slideshow">
+		<div class="home-cover-img animate-in"></div>
+	</div>
+	<div id="home-cover-content">
+		<div id="logo" class="top-bar-logo">
+			<img src="static/images/logo.png" alt="Steg图像——图像隐写系统">
+		</div>
+		<div class="home-buttons">
+			<a id="home-btn1" class="btn" href="/encode">图片文字加密<i class="fas fa-key"></i></a>
+		</div>
+		<div class="home-buttons">
+			<a id="home-btn2" class="btn" href="/decode">图片文字解密<i class="fas fa-lock-open"></i></a>
+		</div>
+		<div class="home-buttons">
+			<a id="home-btn3" class="btn" href="/analyze">图片相似分析<i class="fas fa-images"></i></a>
+		</div>
+		<div class="home-buttons">
+			<a id="home-btn4" class="btn" href="/echart">训练效果图表<i class="fas fa-chart-bar"></i></a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename ='js/canvas-nest.js')}}" color="255,255,255" opacity='0.6' count="40" zIndex="-1"></script>
+</body>
+</html>

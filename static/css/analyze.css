@@ -1,0 +1,64 @@
+body{
+	background:#1C2C3B;
+	color:#efefef;
+}
+.box{
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	
+}
+.info-bar{
+	display: flex;
+	justify-content:space-evenly;
+	align-items:center;
+}
+
+.hr{
+	height: 0.1rem;
+	background-color:#dddddd;
+	margin: 1rem 0;
+}
+.msg{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.img-size{
+    color:#fafafa;
+    background:#dc9da7;
+    border-radius:0.5em;
+    padding:0.1em 0.4em;
+    font-size:0.9em;
+    margin-right:1em;
+    font-weight: bold;
+}
+.psnr{
+    color:#fafafa;
+    background:#8cb3cd;
+    border-radius:0.5em;
+    padding:0.1em 0.4em;
+    font-size:0.9em;
+    margin-right:1em;
+	font-weight: bold;
+}
+.ssim{
+    color:#fafafa;
+    background:#eabb8c;
+    border-radius:0.5em;
+    padding:0.1em 0.4em;
+    font-size:0.9em;
+    margin-right:1em;
+	font-weight: bold;
+}
+table,table tr th, table tr td{
+	border:1px solid #ccc;
+}
+th,td{
+	padding:0.5rem;
+}
+.img-uploaded{
+    max-height: 400px;
+    max-width: 400px;
+}
