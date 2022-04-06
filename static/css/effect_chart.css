@@ -1,0 +1,81 @@
+body{
+	background: #100C2A;
+}
+#main{
+	width: 100%;
+	height:400px;
+}
+/* 按钮 */
+.btn {
+    height: 36px;
+    line-height: 36px;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: normal;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.effect-chart-buttons a{
+	color: #FFF;
+	border: 1px solid transparent;
+}
+/* 返回首页按钮 */
+.back-btn{
+	position: absolute;
+	right: 2em;
+	z-index: 1;
+	height: 36px;
+	line-height: 36px;
+	font-size: 1em;
+	padding: 0 10px;
+	border-color: #22577E;
+	background-color: #22577E;
+	padding-right: 2.2em;
+}
+.back-btn>i{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	transform: translateY(-50%);	
+}
+.back-btn, .back-btn.off:hover {
+	border-color: #2A80B9;
+	background-color: #2A80B9;
+}
+.back-btn:hover {
+	background-color: #2879B0;
+}
+.back-btn.outline {
+	color: #2A80B9;
+}
+/* 图表介绍按钮 */
+#effect-chart-btn1{
+	position: absolute;
+	right: 2em;
+	top:60px;
+	z-index: 1;
+	height: 36px;
+	line-height: 36px;
+	font-size: 1em;
+	padding: 0 10px;
+	border-color: #22577E;
+	background-color: #22577E;
+	padding-right: 2.2em;
+}
+#effect-chart-btn1>i{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	transform: translateY(-50%);	
+}
+#effect-chart-btn1, #effect-chart-btn1.off:hover {
+	border-color: #ce6635;
+	background-color: #ce6635;
+}
+#effect-chart-btn1:hover {
+	background-color: #c46032;
+}
+#effect-chart-btn1.outline {
+	color: #ce6635;
+}

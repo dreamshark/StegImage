@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>训练效果</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+	<link rel="stylesheet" href="{{url_for('static',filename ='/css/font-awesome.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/effect_chart.css')}}">
+	<script src="{{url_for('static',filename ='js/echarts.js')}}"></script>	
+  </head>
+  <body>
+	<div class="effect-chart-buttons">
+		<a class="back-btn btn" href="/effect">返回前页<i class="fas fa-angle-double-left"></i></a>
+	</div>
+	<div class="effect-chart-buttons">
+		<a id="effect-chart-btn1" class="btn" href="/intro2">图表介绍<i class="fas fa-book"></i></a>
+	</div>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 100%;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'),'dark');
+	  var xAxis="{{xAxis}}".replace(/&#39;/g,"").replace("[","").replace("]","").split(',');
+      // 指定图表的配置项和数据
+      var option = {
+		  title: {
+		    text: '（加密前后对比）{{imgSize}}测试图片的PSNR值与SSIM值',
+		    left: 'center'
+		  },
+		  grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		  },
+		  legend: {
+			left: 'left'
+		  },
+		  xAxis: {
+			data: xAxis
+		  },
+		  
+		  yAxis: {
+			  min: {{minYAxis}},
+			  max: {{maxYAxis}}
+		  },
+		  series: [
+			{
+			  name: 'PSNR',
+			  data: {{psnrData}},
+			  type: 'line',
+			  stack: 'x',
+			  itemStyle:{
+				  normal:{
+					  label:{
+						  show:true
+					  }
+				  }
+			  }
+			},
+			{
+			  name: 'SSIM',
+			  data: {{ssimData}},
+			  type: 'line',
+			  stack: 'x',
+			  itemStyle:{
+				  normal:{
+					  label:{
+						  show:true
+					  }
+				  }
+			  }
+			}
+		  ]
+		};
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

@@ -124,7 +124,7 @@ def echart():
         for val in reversed(psnrDataSorted):
             if(val!=float('inf')):
                 maxPsnr=val
-                break        
+                break
    
     return render_template(
             'echart.html',
@@ -137,6 +137,43 @@ def echart():
 @app.route('/intro', methods=['POST', 'GET'])
 def intro():
     return render_template('intro.html')
+
+@app.route('/intro2', methods=['POST', 'GET'])
+def intro2():
+    return render_template('intro2.html')
+
+@app.route('/effect', methods=['POST', 'GET'])
+def effect():
+    if request.method == 'POST':
+        for index in range(1,7):
+            if(request.form.get('effect'+str(index))):
+                with open('static/json/effect_data'+str(index)+'.json', 'r') as f:
+                    chartData = json.load(f)
+                minPsnr=maxPsnr=2
+                
+                if not(len(chartData['PSNR'])==0):
+                    psnrDataSorted=sorted(chartData['PSNR'])
+                    
+                    for val in psnrDataSorted:
+                        if(val!=float('inf')):
+                            minPsnr=val
+                            break
+                
+                    for val in reversed(psnrDataSorted):
+                        if(val!=float('inf')):
+                            maxPsnr=val
+                            break
+
+                return render_template(
+                    'effect_chart.html',
+                    psnrData=chartData['PSNR'],
+                    ssimData=chartData['SSIM'],
+                    xAxis=chartData['xAxis'],
+                    imgSize=chartData['imgSize'][0],
+                    minYAxis=math.floor(minPsnr-2),
+                    maxYAxis=math.floor(maxPsnr+2)
+                )
+    return render_template('effect_index.html')
 
 if __name__ == '__main__':
     # app.debug = True

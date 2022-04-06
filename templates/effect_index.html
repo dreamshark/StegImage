@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+    <meta charset="UTF-8">
+    <title>训练效果</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='/css/font-awesome.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/effect.css')}}">
+</head>
+
+<body>
+<div id="effect-cover">
+	<div id="effect-cover-slideshow">
+		<div class="effect-cover-img animate-in"></div>
+	</div>
+	<div id="effect-cover-content">
+		<div id="logo" class="top-bar-logo">
+			<img src="static/images/logo2.png" alt="Steg图像——图像隐写系统">
+		</div>
+		<form action="" method='POST'>
+				<div class="effect-buttons"><a id="effect-btn1" class="btn">
+					<input type="submit" name="effect1" value="以训练集图片尺寸为变量(256x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+				<div class="effect-buttons"><a id="effect-btn2" class="btn">
+					<input type="submit" name="effect2" value="以训练集图片尺寸为变量(512x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+				<div class="effect-buttons"><a id="effect-btn1" class="btn">
+					<input type="submit" name="effect3" value="以训练集图片数量为变量(256x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+				<div class="effect-buttons"><a id="effect-btn2" class="btn">
+					<input type="submit" name="effect4" value="以训练集图片数量为变量(512x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+				<div class="effect-buttons"><a id="effect-btn1" class="btn">
+					<input type="submit" name="effect5" value="以训练epoch数值为变量(256x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+				<div class="effect-buttons"><a id="effect-btn2" class="btn">
+					<input type="submit" name="effect6" value="以训练epoch数值为变量(512x测试图片)" />
+					<i class="fas fa-chart-bar"></i>
+				</a></div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static',filename ='js/canvas-nest.js')}}" color="255,255,255" opacity='0.6' count="40" zIndex="-1"></script>
+</body>
+</html>

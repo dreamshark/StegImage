@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+	<title>图表介绍</title>
+	<link rel="stylesheet" href="{{url_for('static',filename ='/css/font-awesome.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename ='css/intro.css')}}">
+</head>
+<html>
+ <body class="typora-export os-windows"> 
+ <div class="intro-buttons">
+ 	<a class="back-btn btn" href="/effect">返回前页<i class="fas fa-angle-double-left"></i></a>
+ </div>
+  <div id="write" class="">
+   <p><span>对于该图像隐写系统，开发者探究的训练参数有以下四个，分别对应四行</span><strong><span>横坐标参数</span></strong></p>
+   <ul>
+    <li><strong><span>[编码器和解码器种类]</span></strong><span>：用于训练的编码器和解码器种类，有basic和dense两种，dense效果更好</span></li>
+    <li><strong><span>[训练集图片尺寸]</span></strong><span>：用于训练的图片尺寸，如256x表示训练集图片的长和宽都是256</span></li>
+    <li><strong><span>[训练集图片数量]</span></strong><span>：用于训练的图片数量</span></li>
+    <li><strong><span>[epoch数值]</span></strong><span>：训练设置的epoch数值，如e5为epoch=5</span></li>
+   </ul>
+   <p><span>而图表上方中间的</span><strong><span>标题</span></strong><span>代表</span><strong><span>[测试图像尺寸]</span></strong><span>，说明PSNR值和SSIM值是用多大尺寸的测试图像（加密前后对比）计算出来的</span></p>
+   <p>&nbsp;</p>
+  </div>
+ </body>
+</html>
